@@ -32,8 +32,14 @@
               :key="variant.id" 
               @mouseover="updateImage(variant.image)" 
               class="color-circle"
-              :style="{backgroundColor: variant.color}"
+              :style="{'background-color': variant.color}"
             >
+            <!--
+              Note how the code inside the :style directive is JS.
+              You can't just add kebab-cased-CSS-like code there.
+              Indeed, there are the two brackets indicating you're writing JS.
+              A good idea would be to envelop the style inside a prop and bind it there.
+            -->
             </div>
             <button class="button" @click="addToCart">Add to Cart</button>
           </div>

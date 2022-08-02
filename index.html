@@ -41,7 +41,14 @@
               A good idea would be to envelop the style inside a prop and bind it there.
             -->
             </div>
-            <button class="button" @click="addToCart" :disabled="!inStock">Add to Cart</button>
+            <button
+              class="button"
+              :class="{ disabledButton: !inStock }"
+              :disabled="!inStock"
+              @click="addToCart"
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>

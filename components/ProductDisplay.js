@@ -19,7 +19,6 @@ app.component('product-display', {
         <p v-else>Out of Stock</p>
 
         <p>Shipping: {{ shipping }}</p>
-
         <ul>
           <li v-for="detail in details">{{ detail }}</li>
         </ul>
@@ -40,13 +39,10 @@ app.component('product-display', {
           Add to Cart
         </button>
 
-        <button 
-          class="button" 
-          v-on:click="removeFromCart">
-          Remove From Cart
-        </button>
       </div>
     </div>
+    <review-list :reviews="reviews"></review-list>
+    <review-form @review-submitted="addReview"></review-form>
   </div>`,
   data() {
     return {
@@ -57,18 +53,19 @@ app.component('product-display', {
         variants: [
           { id: 2234, color: 'green', image: './assets/images/socks_green.jpg', quantity: 50 },
           { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 0 },
-        ]
+      ],
+        reviews: []
     }
   },
   methods: {
       addToCart() {
           this.$emit('add-to-cart', this.variants[this.selectedVariant].id)
-    },
-    removeFromCart() {
-      this.$emit('remove-from-cart', this.variants[this.selectedVariant].id);
-    },
+      },
       updateVariant(index) {
           this.selectedVariant = index
+    },
+    addReview(review) {
+      this.reviews.push(review);
       }
   },
   computed: {

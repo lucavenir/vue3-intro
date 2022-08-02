@@ -13,49 +13,16 @@
       <div class="nav-bar"></div>
 
       <div class="cart">Cart({{ cart }})</div>
+      <product-display></product-display>
+      <product-display></product-display>
       
-      <div class="product-display">
-        <div class="product-container">
-          <div class="product-image">
-            <img :src="image" :class="{ 'out-of-stock-img': !inStock }">
-          </div>
-          <div class="product-info">
-            <h1>{{ product }}</h1>
-            <p v-if="inStock">In Stock</p>
-            <p v-else>Out of Stock</p>
-            <ul>
-              <li v-for="detail in details">{{ detail }}</li>
-            </ul>
-
-            <div 
-              v-for="variant in variants" 
-              :key="variant.id" 
-              @mouseover="updateImage(variant.image)" 
-              class="color-circle"
-              :style="{ 'background-color': variant.color} "
-            >
-            <!--
-              Note how the code inside the :style directive is JS.
-              You can't just add kebab-cased-CSS-like code there.
-              Indeed, there are the two brackets indicating you're writing JS.
-              A good idea would be to envelop the style inside a prop and bind it there.
-            -->
-            </div>
-            <button
-              class="button"
-              :class="{ disabledButton: !inStock }"
-              :disabled="!inStock"
-              @click="addToCart"
-            >
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Import App -->
     <script src="./main.js"></script>
+
+    <!-- Import Components -->
+    <script src="./components/ProductDisplay.js"></script>
 
     <!-- Mount App -->
     <script>

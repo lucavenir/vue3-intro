@@ -99,6 +99,16 @@
       "date": "p",
       "time": "p",
       "organizer": "example-name"
+    },
+    {
+      "id": "219ee066-8ba7-45a9-8a58-71ae4a18dfca",
+      "category": "community",
+      "title": "test",
+      "description": "test",
+      "location": "test",
+      "date": "test",
+      "time": "test",
+      "organizer": "some-body-once-told-me the-world-is-gonna-roll-me"
     }
   ]
 }

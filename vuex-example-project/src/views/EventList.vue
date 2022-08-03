@@ -1,31 +1,35 @@
 <template>
-  <h1>{{ $store.getters.numberOfEvents }} Events for Good</h1>
+  <h1>{{ eventStore.numberOfEvents }} Events for Good</h1>
   <div class="events">
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
+    <EventCard
+      v-for="event in eventStore.events"
+      :key="event.id"
+      :event="event"
+    />
   </div>
 </template>
 
 <script>
 import EventCard from '@/components/EventCard.vue'
+import { useEventStore } from '@/store/EventStore'
 
 export default {
+  setup() {
+    const eventStore = useEventStore()
+    return { eventStore }
+  },
   name: 'EventList',
   components: {
     EventCard
   },
   async created() {
     try {
-      await this.$store.dispatch('fetchEvents')
+      await this.eventStore.fetchEvents()
     } catch (e) {
       this.$router.push({
         name: 'Error',
         params: { error: e }
       })
-    }
-  },
-  computed: {
-    events() {
-      return this.$store.state.events
     }
   }
 }

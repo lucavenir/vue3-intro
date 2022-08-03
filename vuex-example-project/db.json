@@ -31,26 +31,6 @@
       "organizer": "Carey Wales"
     },
     {
-      "id": "da817898-2b76-4e0d-a0ab-08ce183380cf",
-      "category": "sustainability",
-      "title": "a",
-      "description": "a",
-      "location": "a",
-      "date": "a",
-      "time": "s",
-      "organizer": "example name"
-    },
-    {
-      "id": "fdd238a6-11f7-46d5-abcb-dec0ad50de49",
-      "category": "community",
-      "title": "b",
-      "description": "b",
-      "location": "b",
-      "date": "b",
-      "time": "b",
-      "organizer": "example name"
-    },
-    {
       "id": "568676d7-cd16-409a-af2b-7842f2e94ebf",
       "category": "community",
       "title": "b",
@@ -78,6 +58,26 @@
       "location": "b",
       "date": "b",
       "time": "b",
+      "organizer": "example name"
+    },
+    {
+      "id": "6d36bfb1-8bd0-452a-82ec-ba856bd0b55a",
+      "category": "animal welfare",
+      "title": "a",
+      "description": "a",
+      "location": "a",
+      "date": "a",
+      "time": "a",
+      "organizer": "example name"
+    },
+    {
+      "id": "55e5ac53-5101-4267-9784-3904c7cded4c",
+      "category": "animal welfare",
+      "title": "a",
+      "description": "a",
+      "location": "a",
+      "date": "a",
+      "time": "a",
       "organizer": "example name"
     }
   ]

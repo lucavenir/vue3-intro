@@ -89,6 +89,16 @@
       "date": "z",
       "time": "z",
       "organizer": "example-name"
+    },
+    {
+      "id": "51e003d7-c598-4b37-a20b-c89b89f6e5a2",
+      "category": "education",
+      "title": "p",
+      "description": "p",
+      "location": "p",
+      "date": "p",
+      "time": "p",
+      "organizer": "example-name"
     }
   ]
 }

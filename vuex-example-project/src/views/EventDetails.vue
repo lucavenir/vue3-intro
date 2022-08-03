@@ -9,8 +9,16 @@
 <script>
 export default {
   props: ['id'],
-  created() {
-    this.$store.dispatch('fetchEvent', this.id)
+  async created() {
+    try {
+      console.log("yOOOOOOOOOOOOOOOOOOOOOOOOOO")
+      await this.$store.dispatch('fetchEvent', this.id)
+    } catch (e) {
+      this.$router.push({
+          name: 'Error',
+          params: { error: e }
+        })
+    }
   },
   computed: {
     event() {

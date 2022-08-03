@@ -20,34 +20,20 @@ export default createStore({
   },
   actions: {
     async createEvent({ commit }, event) {
-      try {
-        await EventService.postEvent(event)
-        commit('addEvent', event)
-      } catch (e) {
-        console.log(e)
-      }
+      await EventService.postEvent(event)
+      commit('addEvent', event)
     },
     async fetchEvents({ commit }) {
-      try {
-        const response = await EventService.getEvents()
-        commit('setEvents', response.data)
-      } catch (e) {
-        console.log(e)
-      }
+      const response = await EventService.getEvents()
+
+      commit('setEvents', response.data)
     },
     async fetchEvent({ commit, state }, id) {
       const existingEvent = state.events.find(event => event.id === id)
-      if (existingEvent) {
-        commit('setEvent', existingEvent)
-        return;
-      }
-      
-      try {
-        const response = await EventService.getEvent(id)
-        commit('setEvent', response.data)
-      } catch (e) {
-        console.log(e)
-      }
+      if (existingEvent) return commit('setEvent', existingEvent)
+
+      const response = await EventService.getEvent(id)
+      commit('setEvent', response.data)
     }
   },
   modules: {}

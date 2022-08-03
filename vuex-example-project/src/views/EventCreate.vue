@@ -94,11 +94,18 @@ export default {
         organizer: this.$store.state.user
       }
 
-      await this.$store.dispatch('createEvent', event)
-      this.$router.push({
-        name: 'EventDetails',
-        params: { id: event.id }
-      })
+      try {
+        await this.$store.dispatch('createEvent', event)
+        this.$router.push({
+          name: 'EventDetails',
+          params: { id: event.id }
+        })
+      } catch (e) {
+        this.$router.push({
+          name: 'Error',
+          params: { error: e }
+        })
+      }
     }
   }
 }

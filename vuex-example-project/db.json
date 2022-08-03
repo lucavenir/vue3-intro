@@ -79,6 +79,16 @@
       "date": "a",
       "time": "a",
       "organizer": "example name"
+    },
+    {
+      "id": "f798e03a-7b13-4e19-a3f5-87b62513c1b6",
+      "category": "animal welfare",
+      "title": "z",
+      "description": "z",
+      "location": "z",
+      "date": "z",
+      "time": "z",
+      "organizer": "example-name"
     }
   ]
 }

@@ -94,7 +94,11 @@ export default {
         organizer: this.$store.state.user
       }
 
-      this.$store.dispatch('createEvent', event)
+      await this.$store.dispatch('createEvent', event)
+      this.$router.push({
+        name: 'EventDetails',
+        params: { id: event.id }
+      })
     }
   }
 }

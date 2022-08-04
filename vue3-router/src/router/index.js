@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import About from '../views/About.vue'
+import Error404 from '../views/Error404.vue'
 import EventDetails from '../views/event/Details.vue'
 import EventEdit from '../views/event/Edit.vue'
 import EventLayout from '../views/event/Layout.vue'
@@ -49,6 +50,11 @@ const routes = [
   {
     path: '/about',
     redirect: { name: 'About' }
+  },
+  {
+    path: '/:catchAll(.*)',
+    name: 'Error404',
+    component: Error404
   }
 ]
 

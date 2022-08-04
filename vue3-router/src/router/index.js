@@ -6,6 +6,7 @@ import EventEdit from '../views/event/Edit.vue'
 import EventLayout from '../views/event/Layout.vue'
 import EventRegister from '../views/event/Register.vue'
 import EventList from '../views/EventList.vue'
+import NetworkError from '../views/NetworkError.vue'
 
 const routes = [
   {
@@ -61,6 +62,11 @@ const routes = [
     name: '404Resource',
     component: Error404,
     props: true
+  },
+  {
+    path: '/network-error',
+    name: 'NetworkError',
+    component: NetworkError
   }
 ]
 

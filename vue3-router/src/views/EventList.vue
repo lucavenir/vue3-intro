@@ -42,7 +42,7 @@ export default {
     const page = routeTo.query.page || 1
 
     try {
-      const response = await EventService.getEvents(2, page)
+      const response = await EventService.getEvents(4, page)
       next(vm => {
         vm.events = response.data
         vm.totalEvents = response.headers['x-total-count']

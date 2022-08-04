@@ -55,6 +55,12 @@ const routes = [
     path: '/:catchAll(.*)',
     name: 'Error404',
     component: Error404
+  },
+  {
+    path: '/404/:resource',
+    name: '404Resource',
+    component: Error404,
+    props: true
   }
 ]
 

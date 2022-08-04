@@ -1,3 +1,6 @@
+import EventService from '@/services/EventService.js'
+import GStore from '@/store'
+import NProgress from 'nprogress'
 import { createRouter, createWebHistory } from 'vue-router'
 import About from '../views/About.vue'
 import Error404 from '../views/Error404.vue'
@@ -20,6 +23,23 @@ const routes = [
     name: 'EventLayout',
     props: true,
     component: EventLayout,
+    beforeEnter: async to => {
+      try {
+        const response = await EventService.getEvent(to.params.id)
+        GStore.event = response.data
+      } catch (error) {
+        console.log(error)
+
+        if (error.response && error.response.status == 404) {
+          return {
+            name: '404Resource',
+            params: { resource: 'event' }
+          }
+        }
+
+        return { name: 'NetworkError' }
+      }
+    },
     children: [
       {
         path: '',
@@ -73,6 +93,13 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.beforeEach(() => {
+  NProgress.start()
+})
+router.afterEach(() => {
+  NProgress.done()
 })
 
 export default router

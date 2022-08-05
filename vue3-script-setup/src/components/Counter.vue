@@ -3,6 +3,7 @@
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import { onMounted, ref } from "vue";
 import fetchCount from "../fetchCount";
+import Button from "./Button.vue";
 
 interface Props {
   limit: number;
@@ -34,6 +35,9 @@ function addCount(num: number) {
 <template>
   <div>
     <p>{{ count }}</p>
-    <button @click.prevent="() => addCount(2)">Increment me</button>
+    <Button
+      @add-count="addCount"
+      @reset-count="count = 0"
+     />
   </div>
 </template>

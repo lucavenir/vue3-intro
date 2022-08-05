@@ -1,8 +1,8 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import Counter from "@/components/Counter.vue";
 import { reactive } from "vue";
+import Counter from "./components/Counter.vue";
 
 interface AppInfo {
   name: string;
@@ -20,7 +20,9 @@ const appInfo: AppInfo = reactive({
     <h1>{{ appInfo.name }}</h1>
     <h2>{{ appInfo.slogan}}</h2>
   </div>
-  <Counter/>
+  <Counter
+    :limit="10"
+  />
 </template>
 
 <style scoped>

@@ -4,8 +4,15 @@
 import { onMounted, ref } from "vue";
 import fetchCount from "../fetchCount";
 
-const count = ref<number | null>(null);
+interface Props {
+  limit: number;
+  alertMessageLimit?: string;
+};
 
+const props = withDefaults(defineProps<Props>(), {
+  alertMessageLimit: "I'd say this is a bad idea"
+});
+const count = ref<number | null>(null);
 
 onMounted(() => {
   fetchCount((c) => {
@@ -14,15 +21,19 @@ onMounted(() => {
 });
 
 function addCount(num: number) {
-  if(count.value !==null) {
-    count.value += num;
+  if (count.value === null) return;
+  if (count.value >= props.limit) {
+    alert(props.alertMessageLimit);
+    return;
   }
+  
+  count.value += num;
 }
 </script>
 
 <template>
   <div>
     <p>{{ count }}</p>
-    <button @click.prevent="() => addCount(2)"></button>
+    <button @click.prevent="() => addCount(2)">Increment me</button>
   </div>
 </template>

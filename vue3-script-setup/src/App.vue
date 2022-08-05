@@ -11,6 +11,12 @@ interface AppInfo {
 
 const count = ref<number | null>(null);
 
+// const nextCount = computed(() => {
+//   if (count.value === null) return null;
+// 
+//   return count.value += 1
+// })
+
 const appInfo: AppInfo = reactive({
   name: 'My App',
   slogan: 'This is awesome.'
@@ -21,6 +27,12 @@ onMounted(() => {
     count.value = c
   })
 });
+
+function addCount(num: number) {
+  if(count.value !==null) {
+    count.value += num;
+  }
+}
 </script>
 
 <template>
@@ -29,6 +41,7 @@ onMounted(() => {
     <h2>{{ appInfo.slogan}}</h2>
   </div>
   <p>{{ count }}</p>
+  <button @click.prevent="() => addCount(2)"></button>
 </template>
 
 <style scoped>

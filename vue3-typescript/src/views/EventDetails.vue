@@ -10,8 +10,14 @@
 import EventService from "@/services/EventService";
 import { EventItem } from "@/types";
 import { defineComponent } from "vue";
+
 export default defineComponent({
-  props: ["id"],
+  props: {
+    id: {
+      type: Number,
+      required: true
+    }
+  },
   data() {
     return {
       event: {} as EventItem

@@ -7,10 +7,9 @@
 </template>
 
 <script lang="ts">
-import EventService from "@/services/EventService";
-import { EventItem } from "@/types";
 import { defineComponent } from "vue";
-
+import EventService from "../services/EventService";
+import { EventItem } from "../types";
 export default defineComponent({
   props: {
     id: {

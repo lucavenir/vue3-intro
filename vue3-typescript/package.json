@@ -1,5 +1,5 @@
 {
-  "name": "vue3-typescript",
+  "name": "real-world-vue",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -50,9 +50,18 @@
     "parserOptions": {
       "parser": "@typescript-eslint/parser"
     },
-    "rules": {
-      "no-unused-vars": "off"
-    }
+    "rules": {},
+    "overrides": [
+      {
+        "files": [
+          "*.vue"
+        ],
+        "rules": {
+          "no-unused-vars": "off",
+          "@typescript-eslint/no-unused-vars": "error"
+        }
+      }
+    ]
   },
   "browserslist": [
     "> 1%",
